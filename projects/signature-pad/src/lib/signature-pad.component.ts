@@ -1,8 +1,7 @@
 'use strict';
 
 import { AfterContentInit, Component, ElementRef, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
-
-declare var require: any;
+import * as signature_pad from 'signature_pad';
 
 export interface Point {
   x: number;
@@ -19,7 +18,8 @@ export type PointGroup = Array<Point>;
   styles: [
   ]
 })
-export class SignaturePadComponent implements AfterContentInit, OnDestroy {
+// tslint:disable-next-line: component-class-suffix
+export class SignaturePad implements AfterContentInit, OnDestroy {
 
   @Input() public options: object;
   @Output() public startEvent: EventEmitter<boolean>;
@@ -38,7 +38,7 @@ export class SignaturePadComponent implements AfterContentInit, OnDestroy {
 
   public ngAfterContentInit(): void {
     // const sp: any = signPad.;
-    const sp: any = require('signature_pad').default;
+    const sp: any = signature_pad.default;
     const canvas: any = this.elementRef.nativeElement.querySelector('canvas');
 
     if ((this.options as any).canvasHeight) {
