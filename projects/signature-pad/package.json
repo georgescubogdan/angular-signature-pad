@@ -1,0 +1,12 @@
+{
+  "name": "signature-pad",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.1.6",
+    "@angular/core": "^10.1.6",
+    "signature_pad": "3.0.0-beta.4"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
