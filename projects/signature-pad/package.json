@@ -1,6 +1,6 @@
 {
   "name": "ng-sign-pad",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Angular 10 upgrade of angular2-signaturepad",
   "keywords": [
     "signature",
@@ -20,7 +20,9 @@
     "@angular/core": "^10.1.6"
   },
   "dependencies": {
-    "tslib": "^2.0.0",
     "signature_pad": "3.0.0-beta.4"
+  },
+  "devDependencies": {
+    "tslib": "^2.0.0"
   }
 }
