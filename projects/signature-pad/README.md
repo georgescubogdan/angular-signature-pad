@@ -1,6 +1,14 @@
-# SignaturePad
-
+# ng-sign-pad
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+Angular 10 upgrade of [angular2-signaturepad](https://www.npmjs.com/package/angular2-signaturepad).
+
+## Install
+`npm install ng-sign-pad --save`
+
+## Usage example
+
+API and usage are identical to [angular2-signaturepad](https://www.npmjs.com/package/angular2-signaturepad).
+
 
 ## Code scaffolding
 

@@ -1,6 +1,20 @@
 {
-  "name": "signature-pad",
-  "version": "0.0.1",
+  "name": "ng-sign-pad",
+  "version": "0.0.2",
+  "description": "Angular 10 upgrade of angular2-signaturepad",
+  "keywords": [
+    "signature",
+    "sign",
+    "finger",
+    "canvas",
+    "angular"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgescubogdan/angular-signature-pad.git"
+  },
+  "author": "Georgescu Bogdan <https://github.com/georgescubogdan> (https://github.com/georgescubogdan)",
   "peerDependencies": {
     "@angular/common": "^10.1.6",
     "@angular/core": "^10.1.6",

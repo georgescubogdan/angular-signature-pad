@@ -13,7 +13,7 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/signature-pad/tsconfig.lib.json",
-            "project": "projects/signature-pad/ng-package.json",
+            "project": "projects/signature-pad/ng-package.json"
           },
           "configurations": {
             "production": {
