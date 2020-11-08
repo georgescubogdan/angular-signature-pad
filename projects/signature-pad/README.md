@@ -6,26 +6,65 @@ Angular 10 upgrade of [angular2-signaturepad](https://www.npmjs.com/package/angu
 
 ## Usage example
 
-API and usage are identical to [angular2-signaturepad](https://www.npmjs.com/package/angular2-signaturepad).
+API is identical to [szimek/signature_pad](https://www.npmjs.com/package/signature_pad).
 
+Options are as per [szimek/signature_pad](https://www.npmjs.com/package/signature_pad) with the following additions:
+* canvasWidth: width of the canvas (px)
+* canvasHeight: height of the canvas (px)
+The above options are provided to avoid accessing the DOM directly from your component to adjust the canvas size.
 
-## Code scaffolding
+```typescript
 
-Run `ng generate component component-name --project signature-pad` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project signature-pad`.
-> Note: Don't forget to add `--project signature-pad` or else it will be added to the default project in your `angular.json` file. 
+// import into app module
 
-## Build
+import { SignaturePadModule } from 'angular2-signaturepad';
 
-Run `ng build signature-pad` to build the project. The build artifacts will be stored in the `dist/` directory.
+...
 
-## Publishing
+@NgModule({
+  declarations: [ ],
+  imports: [ SignaturePadModule ],
+  providers: [ ],
+  bootstrap: [ AppComponent ]
+})
 
-After building your library with `ng build signature-pad`, go to the dist folder `cd dist/signature-pad` and run `npm publish`.
+// then import for use in a component
 
-## Running unit tests
+import { Component, ViewChild } from 'angular2/core';
+import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 
-Run `ng test signature-pad` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({
+  template: '<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>'
+})
 
-## Further help
+export class SignaturePadPage{
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
+
+  private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+    'minWidth': 5,
+    'canvasWidth': 500,
+    'canvasHeight': 300
+  };
+
+  constructor() {
+    // no-op
+  }
+
+  ngAfterViewInit() {
+    // this.signaturePad is now available
+    this.signaturePad.set('minWidth', 5); // set szimek/signature_pad options at runtime
+    this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
+  }
+
+  drawComplete() {
+    // will be notified of szimek/signature_pad's onEnd event
+    console.log(this.signaturePad.toDataURL());
+  }
+
+  drawStart() {
+    // will be notified of szimek/signature_pad's onBegin event
+    console.log('begin drawing');
+  }
+}
+```
